@@ -28,6 +28,9 @@ DEBUG = True
 # Allow all hosts for development purposes
 ALLOWED_HOSTS = ['*']
 
+# Add codespace Django REST API endpoint suffix to allowed hosts
+ALLOWED_HOSTS += ['super-duper-journey-97pjjrx9679c7wg6-8000.app.github.dev']
+
 
 # Application definition
 
