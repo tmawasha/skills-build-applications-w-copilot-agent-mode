@@ -25,7 +25,8 @@ SECRET_KEY = "django-insecure--90gk_4lxg5r6i1v-t_9xcd6do1#tgx(@_s7qvm70#+srj=*31
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Allow all hosts for development purposes
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,9 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -72,12 +75,23 @@ WSGI_APPLICATION = "octofit_tracker.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# MongoDB configuration
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'octofit_db',
+        'CLIENT': {
+            'host': '127.0.0.1',
+            'port': 27017,
+        }
     }
 }
+
+
+# Enable CORS
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+CORS_ALLOW_HEADERS = ['*']
 
 
 # Password validation
@@ -114,7 +128,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
