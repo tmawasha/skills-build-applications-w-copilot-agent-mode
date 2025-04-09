@@ -13,7 +13,7 @@ permissions:
   issues: write
 
 env:
-  STEP_4_FILE: "https://github.com/tmawasha/skills-build-applications-w-copilot-agent-mode/issues/1"
+  STEP_4_FILE: ".github/steps/4-setup-django-rest-framework.md"
 
 jobs:
   find_exercise:
