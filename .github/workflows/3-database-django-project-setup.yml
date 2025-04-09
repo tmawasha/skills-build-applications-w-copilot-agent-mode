@@ -13,7 +13,7 @@ permissions:
   issues: write
 
 env:
-  STEP_4_FILE: ".github/steps/4-setup-django-rest-framework.md"
+  STEP_4_FILE: ".github/steps/4-setup-django-rest-framework.yml"
 
 jobs:
   find_exercise:
