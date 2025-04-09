@@ -24,7 +24,7 @@ Workout.objects.create(name="HIIT", description="High-intensity interval trainin
 print("Test data populated successfully.")
 
 from django.contrib.auth.models import User
-from myapp.models import MyModel
+from myapp.models import MyModel # type: ignore
 
 # Create a test user
 User.objects.create_user(username='testuser', password='password')
